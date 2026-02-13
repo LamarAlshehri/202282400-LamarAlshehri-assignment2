@@ -86,3 +86,17 @@ body.dark .card {
     transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
+
+/* Image Fix */
+.card img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    background: #eee;   /* light mode */
+    border-radius: 5px;
+}
+
+/* Dark Mode Image Background */
+body.dark .card img {
+    background: #000;
+}
