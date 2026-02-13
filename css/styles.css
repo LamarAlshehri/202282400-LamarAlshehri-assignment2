@@ -112,3 +112,15 @@ form {
 input, textarea {
     padding: 10px;
 }
+
+button {
+    padding: 10px;
+    background: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.8;
+}
