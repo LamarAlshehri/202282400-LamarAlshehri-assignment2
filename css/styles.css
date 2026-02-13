@@ -36,3 +36,18 @@ body.dark {
     display: flex;
     gap: 20px;
 }
+
+/* Links */
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 6px 10px;
+    transition: 0.3s;
+}
+
+/* Hover */
+.navbar a:hover {
+    background: white;
+    color: black;
+    border-radius: 5px;
+}
