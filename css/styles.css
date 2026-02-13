@@ -19,3 +19,20 @@ body.dark {
     background: #121212;
     color: white;
 }
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    background: #333;
+    color: white;
+}
+
+/* Horizontal menu */
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
