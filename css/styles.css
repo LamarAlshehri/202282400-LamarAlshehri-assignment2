@@ -26,7 +26,7 @@ body.dark {
     justify-content: space-between;
     align-items: center;
     padding: 15px 30px;
-    background: #333;
+    background: #333333;
     color: white;
 }
 
@@ -125,7 +125,7 @@ button:hover {
     opacity: 0.8;
 }
 
-/* TABLET */
+/* Tablet */
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
@@ -134,7 +134,7 @@ button:hover {
     }
 }
 
-/* MOBILE */
+/* Mobile */
 @media (max-width: 480px) {
     .section {
         padding: 30px 15px;
@@ -144,7 +144,7 @@ button:hover {
         font-size: 1.2rem;
     }
 }
-
+/*Smooth Scrolling*/
 html {
     scroll-behavior: smooth;
 }
