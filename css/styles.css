@@ -124,3 +124,23 @@ button {
 button:hover {
     opacity: 0.8;
 }
+
+/* TABLET */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 480px) {
+    .section {
+        padding: 30px 15px;
+    }
+
+    h1, h2 {
+        font-size: 1.2rem;
+    }
+}
