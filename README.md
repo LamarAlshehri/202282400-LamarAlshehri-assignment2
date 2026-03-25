@@ -91,4 +91,4 @@ Possible enhancements include:
 ---
 
 ## License
-This project was developed for academic purposes.
+This project was developed for academic purposes
