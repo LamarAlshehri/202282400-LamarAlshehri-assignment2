@@ -83,6 +83,92 @@ filterButtons.forEach((btn) => {
 
 searchInput.addEventListener("input", filterProjects);
 
+// ─────────────────────────────────────────
+// 4. GITHUB API  – fetch public repos
+// ─────────────────────────────────────────
+const GITHUB_USERNAME = "lamaralshehrii";   // update to your actual GitHub handle
+const repoLoading     = document.getElementById("repoLoading");
+const repoError       = document.getElementById("repoError");
+const repoGrid        = document.getElementById("repoGrid");
+const retryBtn        = document.getElementById("retryBtn");
+
+const LANG_COLORS = {
+    JavaScript : "#f1e05a",
+    TypeScript : "#3178c6",
+    Python     : "#3572A5",
+    Java       : "#b07219",
+    HTML       : "#e34c26",
+    CSS        : "#563d7c",
+    Shell      : "#89e051",
+    default    : "#8f8f8f",
+};
+
+function langDot(lang) {
+    const color = LANG_COLORS[lang] || LANG_COLORS.default;
+    return `<span class="lang-dot" style="background:${color}"></span>`;
+}
+
+function renderRepos(repos) {
+    if (repos.length === 0) {
+        repoGrid.innerHTML =
+            `<p style="color:var(--text-muted)">No public repositories found.</p>`;
+        repoGrid.classList.remove("hidden");
+        return;
+    }
+
+    repoGrid.innerHTML = repos
+        .slice(0, 6)
+        .map(
+            (r) => `
+        <a class="repo-card fade-in visible"
+           href="${r.html_url}"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Repository: ${r.name}">
+            <h3>${r.name}</h3>
+            <p>${r.description || "No description provided."}</p>
+            <div class="repo-meta">
+                ${r.language
+                    ? `<span class="repo-lang">${langDot(r.language)} ${r.language}</span>`
+                    : ""}
+                <span>⭐ ${r.stargazers_count}</span>
+                <span>🍴 ${r.forks_count}</span>
+            </div>
+        </a>`
+        )
+        .join("");
+
+    repoGrid.classList.remove("hidden");
+}
+
+async function fetchRepos() {
+    repoLoading.classList.remove("hidden");
+    repoError.classList.add("hidden");
+    repoGrid.classList.add("hidden");
+
+    try {
+        const response = await fetch(
+            `https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=pushed&per_page=6`,
+            { headers: { Accept: "application/vnd.github+json" } }
+        );
+
+        if (!response.ok) {
+            throw new Error(`GitHub API returned ${response.status}`);
+        }
+
+        const repos = await response.json();
+        renderRepos(repos);
+    } catch (err) {
+        console.error("GitHub fetch error:", err);
+        repoError.classList.remove("hidden");
+    } finally {
+        repoLoading.classList.add("hidden");
+    }
+}
+
+retryBtn.addEventListener("click", fetchRepos);
+fetchRepos();
+
 // Contact Form Interaction
 const form = document.getElementById("contactForm");
 const message = document.getElementById("formMessage");

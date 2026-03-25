@@ -16,6 +16,7 @@
             <ul>
                 <li><a href="#about">About</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#github">GitHub</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -93,6 +94,22 @@
             </div>
 
         </div>
+    </section>
+
+    <!-- GitHub Section -->
+    <section id="github" class="section fade-in">
+        <h2>GitHub Activity</h2>
+        <p class="section-sub">Latest public repositories pulled live from GitHub.</p>
+        <div id="repoLoading" class="loading-indicator">
+            <div class="spinner"></div>
+            <span>Loading repositories...</span>
+        </div>
+        <div id="repoError" class="error-banner hidden">
+            <span>⚠️</span>
+            <p>Couldn't load GitHub repositories right now. Check your connection and try again.</p>
+            <button id="retryBtn">Retry</button>
+        </div>
+        <div id="repoGrid" class="repo-grid hidden"></div>
     </section>
 
     <!-- Contact -->
