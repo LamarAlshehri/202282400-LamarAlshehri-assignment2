@@ -824,3 +824,62 @@ textarea {
 .error-banner button:hover {
     background: var(--accent-hover);
 }
+
+/* ========================================
+   CONTACT FORM
+======================================== */
+#contactForm {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-width: 560px;
+    margin-top: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 8px;
+}
+
+input.invalid, textarea.invalid {
+    border-color: var(--error);
+}
+
+.field-error {
+    font-size: 0.8rem;
+    color: var(--error);
+    min-height: 18px;
+    margin-top: 4px;
+    transition: opacity 0.2s;
+}
+
+#submitBtn {
+    padding: 12px 28px;
+    background: var(--accent);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 4px;
+    transition: background var(--transition), transform 0.15s;
+    align-self: flex-start;
+}
+
+#submitBtn:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+}
+
+.form-success {
+    margin-top: 16px;
+    padding: 14px 18px;
+    background: var(--surface);
+    border: 1px solid var(--success);
+    border-radius: 8px;
+    color: var(--success);
+    font-size: 0.95rem;
+    animation: fadeIn 0.4s ease;
+}

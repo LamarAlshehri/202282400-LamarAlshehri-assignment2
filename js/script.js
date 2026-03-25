@@ -169,11 +169,99 @@ async function fetchRepos() {
 retryBtn.addEventListener("click", fetchRepos);
 fetchRepos();
 
-// Contact Form Interaction
-const form = document.getElementById("contactForm");
-const message = document.getElementById("formMessage");
+// ─────────────────────────────────────────
+// 5. CONTACT FORM  – validation + feedback
+// ─────────────────────────────────────────
+const contactForm   = document.getElementById("contactForm");
+const nameInput     = document.getElementById("nameInput");
+const emailInput    = document.getElementById("emailInput");
+const messageInput  = document.getElementById("messageInput");
+const nameError     = document.getElementById("nameError");
+const emailError    = document.getElementById("emailError");
+const messageError  = document.getElementById("messageError");
+const formMessage   = document.getElementById("formMessage");
 
-form.addEventListener("submit", (e) => {
+function showError(input, errorEl, msg) {
+    errorEl.textContent = msg;
+    input.classList.add("invalid");
+}
+
+function clearError(input, errorEl) {
+    errorEl.textContent = "";
+    input.classList.remove("invalid");
+}
+
+function validateEmail(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+nameInput.addEventListener("blur", () => {
+    if (!nameInput.value.trim()) {
+        showError(nameInput, nameError, "Name is required.");
+    } else {
+        clearError(nameInput, nameError);
+    }
+});
+
+emailInput.addEventListener("blur", () => {
+    if (!emailInput.value.trim()) {
+        showError(emailInput, emailError, "Email is required.");
+    } else if (!validateEmail(emailInput.value.trim())) {
+        showError(emailInput, emailError, "Please enter a valid email address.");
+    } else {
+        clearError(emailInput, emailError);
+    }
+});
+
+messageInput.addEventListener("blur", () => {
+    if (!messageInput.value.trim()) {
+        showError(messageInput, messageError, "Message cannot be empty.");
+    } else if (messageInput.value.trim().length < 10) {
+        showError(messageInput, messageError, "Message must be at least 10 characters.");
+    } else {
+        clearError(messageInput, messageError);
+    }
+});
+
+contactForm.addEventListener("submit", (e) => {
     e.preventDefault();
-    message.textContent = "✅ Message sent successfully (demo only).";
+
+    let valid = true;
+
+    if (!nameInput.value.trim()) {
+        showError(nameInput, nameError, "Name is required.");
+        valid = false;
+    } else {
+        clearError(nameInput, nameError);
+    }
+
+    if (!emailInput.value.trim()) {
+        showError(emailInput, emailError, "Email is required.");
+        valid = false;
+    } else if (!validateEmail(emailInput.value.trim())) {
+        showError(emailInput, emailError, "Please enter a valid email address.");
+        valid = false;
+    } else {
+        clearError(emailInput, emailError);
+    }
+
+    if (!messageInput.value.trim()) {
+        showError(messageInput, messageError, "Message cannot be empty.");
+        valid = false;
+    } else if (messageInput.value.trim().length < 10) {
+        showError(messageInput, messageError, "Message must be at least 10 characters.");
+        valid = false;
+    } else {
+        clearError(messageInput, messageError);
+    }
+
+    if (!valid) return;
+
+    formMessage.classList.remove("hidden");
+    contactForm.reset();
+    formMessage.scrollIntoView({ behavior: "smooth", block: "nearest" });
+
+    setTimeout(() => {
+        formMessage.classList.add("hidden");
+    }, 5000);
 });
