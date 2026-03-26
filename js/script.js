@@ -86,7 +86,7 @@ searchInput.addEventListener("input", filterProjects);
 // ─────────────────────────────────────────
 // 4. GITHUB API  – fetch public repos
 // ─────────────────────────────────────────
-const GITHUB_USERNAME = "lamaralshehrii";   // update to your actual GitHub handle
+const GITHUB_USERNAME = "LamarAlshehri";   // update to your actual GitHub handle
 const repoLoading     = document.getElementById("repoLoading");
 const repoError       = document.getElementById("repoError");
 const repoGrid        = document.getElementById("repoGrid");

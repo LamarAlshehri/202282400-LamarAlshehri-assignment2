@@ -883,3 +883,42 @@ input.invalid, textarea.invalid {
     font-size: 0.95rem;
     animation: fadeIn 0.4s ease;
 }
+
+/* ========================================
+   SKILLS ROW
+======================================== */
+.skills-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.skill-tag {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    transition: background var(--transition), transform 0.15s;
+}
+
+.skill-tag:hover {
+    background: var(--accent);
+    color: #fff;
+    transform: translateY(-2px);
+    border-color: var(--accent);
+}
+
+/* ========================================
+   FOOTER
+======================================== */
+.footer {
+    text-align: center;
+    padding: 28px 20px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+}
