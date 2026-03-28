@@ -1,94 +1,85 @@
-# Personal Portfolio Website – Assignment 1
+# 202282400-LamarAlshehri-assignment2
 
-## Student Information
-**Name:** Lamar Alshehri
-**Student ID:** 202282400
-**Course:** SWE363
+**Lamar Alshehri | 202282400**  
+Assignment 2 – Interactive Features  
+SWE Web Development Course, KFUPM  
 
 ---
 
-## Project Overview
-This project is a responsive personal portfolio website developed as the foundation of a professional online presence.  
-It demonstrates fundamental skills in **HTML, CSS, and JavaScript**, while also integrating AI-assisted development practices.
+## Project Description
 
-The website includes core portfolio sections such as an introduction, project showcase, and a contact interface.
+A personal portfolio website built with plain HTML, CSS, and JavaScript. This version (Assignment 2) extends the static Assignment 1 foundation with:
+
+- Live project filtering by category and keyword search
+- GitHub API integration showing my latest public repositories
+- Persistent dark/light theme via localStorage
+- Smooth scroll-triggered fade-in animations
+- Full form validation with per-field inline error messages
 
 ---
 
 ## Features
-- Responsive design for desktop, tablet, and mobile
-- Navigation bar with hover effects
-- About Me section with personal introduction
-- Projects section with project cards
-- Contact form (front-end demonstration)
-- Dark / Light theme toggle
-- Clean, structured, and maintainable code
+
+| Feature | Requirement |
+|---|---|
+| Project filter + search | Dynamic Content |
+| GitHub API with loading/error/retry | Data Handling (Public API) |
+| Theme saved to localStorage | Data Handling (localStorage) |
+| Fade-in on scroll, hover effects | Animations & Transitions |
+| Inline form errors, success message | Error Handling & User Feedback |
 
 ---
 
-## Technologies Used
-- **HTML5** → page structure  
-- **CSS3** → layout, styling, responsiveness  
-- **JavaScript** → interactivity  
-- **Git & GitHub** → version control  
+## Setup Instructions
+
+No build step required. This is a plain HTML/CSS/JS project.
+
+**To run locally:**
+
+1. Clone the repository:
+```bash
+   git clone https://github.com/LamarAlshehri/202282400-LamarAlshehri-assignment2.git
+```
+2. Open `index.html` in any modern browser, or use a local server:
+```bash
+   # Option A – VS Code Live Server extension (recommended)
+   # Right-click index.html → "Open with Live Server"
+
+   # Option B – Python
+   python3 -m http.server 8000
+   # then visit http://localhost:8000
+```
+
+> **Note:** The GitHub API section requires internet access to load repositories.
 
 ---
 
 ## Folder Structure
-assignment-1/
+```
+assignment-2/
 ├── README.md
 ├── index.html
 ├── css/
-│ └── styles.css
+│   └── styles.css
 ├── js/
-│ └── script.js
+│   └── script.js
 ├── assets/
-│ └── images/
+│   └── images/
 ├── docs/
-│ ├── ai-usage-report.md
-│ └── technical-documentation.md
+│   ├── ai-usage-report.md
+│   └── technical-documentation.md
 └── .gitignore
-
-
----
-
-## How to Run the Project Locally
-1. Clone or download the repository.
-2. Open `index.html` in any modern web browser.
-
-No additional installation or dependencies are required.
+```
 
 ---
 
 ## AI Usage Summary
-AI tools were used to assist with:
-- Generating starter layouts
-- Suggesting responsive CSS techniques
-- Debugging and improving JavaScript behavior
-- Providing explanations of implementation decisions
 
-A detailed explanation of AI usage is available in:
-docs/ai-usage-report.md
+Claude (Anthropic) was used to assist with planning, code generation, and debugging across several features. All AI output was reviewed, modified, and integrated with understanding. Full details are in [`docs/ai-usage-report.md`](docs/ai-usage-report.md).
 
 
 ---
 
-## Learning Outcomes
-Through this assignment, I learned:
-- How to structure a web project professionally
-- How responsive layouts are built using Grid and Flexbox
-- How JavaScript enhances user interaction
-- How to responsibly review and adapt AI-generated suggestions
+## Academic Integrity
 
----
-
-## Future Improvements
-Possible enhancements include:
-- Adding real project links
-- Connecting the contact form to a backend
-- Adding animations and advanced UI components
-
----
-
-## License
-This project was developed for academic purposes
+All code was written or reviewed with full understanding. AI tools were used as a learning aid, not as a replacement for understanding. No code was copied from classmates.
