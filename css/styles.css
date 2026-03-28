@@ -64,7 +64,7 @@ body {
     background: var(--bg);
     color: var(--text);
     line-height: 1.7;
-    font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+    font-family: 'Trebuchet MS', sans-serif;
     transition: background var(--transition), color var(--transition);
 }
 
