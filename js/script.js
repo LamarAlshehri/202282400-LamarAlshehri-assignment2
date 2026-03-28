@@ -1,4 +1,19 @@
 // ─────────────────────────────────────────
+// 0. TIME-BASED GREETING
+// ─────────────────────────────────────────
+const timeGreeting = document.getElementById("timeGreeting");
+
+function getTimeGreeting() {
+    const hour = new Date().getHours();
+    if (hour >= 5  && hour < 12) return "Good morning";
+    if (hour >= 12 && hour < 17) return "Good afternoon";
+    if (hour >= 17 && hour < 21) return "Good evening";
+    return "Good night";
+}
+
+timeGreeting.textContent = `${getTimeGreeting()}, welcome to my portfolio.`;
+
+// ─────────────────────────────────────────
 // 1. THEME TOGGLE  (persisted via localStorage)
 // ─────────────────────────────────────────
 const themeToggle = document.getElementById("themeToggle");
@@ -86,7 +101,7 @@ searchInput.addEventListener("input", filterProjects);
 // ─────────────────────────────────────────
 // 4. GITHUB API  – fetch public repos
 // ─────────────────────────────────────────
-const GITHUB_USERNAME = "LamarAlshehri";   // update to your actual GitHub handle
+const GITHUB_USERNAME = "LamarAlshehri";
 const repoLoading     = document.getElementById("repoLoading");
 const repoError       = document.getElementById("repoError");
 const repoGrid        = document.getElementById("repoGrid");
@@ -196,8 +211,11 @@ function validateEmail(email) {
 }
 
 nameInput.addEventListener("blur", () => {
-    if (!nameInput.value.trim()) {
+    const name = nameInput.value.trim();
+    if (!name) {
         showError(nameInput, nameError, "Name is required.");
+    } else if (!/^[a-zA-Z\s'-]+$/.test(name)) {
+        showError(nameInput, nameError, "Name can only contain letters.");
     } else {
         clearError(nameInput, nameError);
     }
@@ -230,6 +248,9 @@ contactForm.addEventListener("submit", (e) => {
 
     if (!nameInput.value.trim()) {
         showError(nameInput, nameError, "Name is required.");
+        valid = false;
+    } else if (!/^[a-zA-Z\s'-]+$/.test(nameInput.value.trim())) {
+        showError(nameInput, nameError, "Name can only contain letters.");
         valid = false;
     } else {
         clearError(nameInput, nameError);
